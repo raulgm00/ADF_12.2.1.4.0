@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">inicializaComponentes</property>
+      <property
+         name="x">38.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>inicializaComponentes&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">199.08008</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <TaskFlowReturn
+      id="TaskFlowReturn15">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="x">198.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="y">347.1953</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </TaskFlowReturn>
+   <View
+      id="View19">
+      <property
+         name="activityId">controlCliente</property>
+      <property
+         name="x">241.68555</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>controlCliente&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">198.0459</property>
+      <property
+         name="page">/controlCliente.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="MethodCall2"
+      to="View19">
+      <property
+         name="fromOutcome">goToControl</property>
+      <property
+         name="sdm:polyPoints">R50,79.0,198.72949,200.68555,197.69531,L50</property>
+   </ControlFlowCase>
+</SDM>

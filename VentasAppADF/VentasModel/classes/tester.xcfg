@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="model.ventas.entities.am.VentasAM">
+      <AppModuleConfig name="1793FCC6CCA" DeployPlatform="LOCAL" jbo.project="model.ventas.VentasModel" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="VentasAMLocal" ApplicationName="model.ventas.entities.am.VentasAM" DBconnection="jdbc/ADF_VentasDS">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="Oracle" JDBCDataSource="jdbc/ADF_VentasDS" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="model.ventas.entities.am.VentasAM"/>
+         <Tester FullProxyInterfaceName="model.ventas.entities.am.common.VentasAM"/>
+         <Custom ns0:LastUsedConfiguration="VentasAMLocal" ns0:tester_classloader_enabled="true" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

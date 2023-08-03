@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="model.ventas.entities.am.VentasAM" default="VentasAMLocal">
+    <AppModuleConfig name="VentasAMLocal" jbo.project="model.ventas.VentasModel"
+                     ApplicationName="model.ventas.entities.am.VentasAM" DeployPlatform="LOCAL">
+      <Database JDBCDataSource="jdbc/ADF_VentasDS"/>
+      <Security AppModuleJndiName="model.ventas.entities.am.VentasAM"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="VentasAMShared" jbo.project="model.ventas.VentasModel"
+                     ApplicationName="model.ventas.entities.am.VentasAM" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database JDBCDataSource="jdbc/ADF_VentasDS"/>
+      <Security AppModuleJndiName="model.ventas.entities.am.VentasAM"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="incrementaPrecioPageDef"
+                Package="view.ventas.beaking.bean.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="double" Name="incrementarPrecio_porcentaje" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="ProductoVO1" RangeSize="25" DataControl="VentasAMDataControl" id="ProductoVO1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="incrementarPrecio" RequiresUpdateModel="true" Action="invokeMethod" MethodName="incrementarPrecio"
+                  IsViewObjectMethod="false" DataControl="VentasAMDataControl"
+                  InstanceName="bindings.incrementarPrecio.dataControl.dataProvider">
+      <NamedData NDName="porcentaje" NDType="double" NDValue="${bindings.incrementarPrecio_porcentaje}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="porcentaje">
+      <AttrNames>
+        <Item Value="incrementarPrecio_porcentaje"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ProductoVO1Iterator" id="ProductoVO1">
+      <nodeDefinition DefName="model.ventas.entities.vo.ProductoVO" Name="ProductoVO10">
+        <AttrNames>
+          <Item Value="IdProducto"/>
+          <Item Value="Nombre"/>
+          <Item Value="Descripcion"/>
+          <Item Value="Precio"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

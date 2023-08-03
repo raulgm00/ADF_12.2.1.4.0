@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="incrementaPrecio.jspx" id="d1" binding="#{backingBeanScope.backing_incrementaPrecio.d1}">
+            <af:messages binding="#{backingBeanScope.backing_incrementaPrecio.m1}" id="m1"/>
+            <af:form id="f1" binding="#{backingBeanScope.backing_incrementaPrecio.f1}">
+                <af:pageTemplate viewId="/template/templateVentas.jspx" id="pt1">
+                    <f:facet name="contenido">
+                        <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_incrementaPrecio.pfl1}">
+                            <af:inputText value="#{bindings.porcentaje.inputValue}"
+                                          label="#{bindings.porcentaje.hints.label}"
+                                          required="#{bindings.porcentaje.hints.mandatory}"
+                                          columns="#{bindings.porcentaje.hints.displayWidth}"
+                                          maximumLength="#{bindings.porcentaje.hints.precision}"
+                                          shortDesc="#{bindings.porcentaje.hints.tooltip}" id="it1"
+                                          binding="#{backingBeanScope.backing_incrementaPrecio.it1}">
+                                <f:validator binding="#{bindings.porcentaje.validator}"/>
+                            </af:inputText>
+                            <af:button actionListener="#{bindings.incrementarPrecio.execute}" text="incrementarPrecio"
+                                       disabled="#{!bindings.incrementarPrecio.enabled}" id="b1"
+                                       binding="#{backingBeanScope.backing_incrementaPrecio.b1}"/>
+                            <af:table value="#{bindings.ProductoVO1.collectionModel}" var="row"
+                                      rows="#{bindings.ProductoVO1.rangeSize}"
+                                      emptyText="#{bindings.ProductoVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0" fetchSize="#{bindings.ProductoVO1.rangeSize}" id="t1"
+                                      binding="#{backingBeanScope.backing_incrementaPrecio.t1}">
+                                <af:column headerText="#{bindings.ProductoVO1.hints.IdProducto.label}" id="c1">
+                                    <af:inputText value="#{row.bindings.IdProducto.inputValue}"
+                                                  label="#{bindings.ProductoVO1.hints.IdProducto.label}"
+                                                  required="#{bindings.ProductoVO1.hints.IdProducto.mandatory}"
+                                                  columns="#{bindings.ProductoVO1.hints.IdProducto.displayWidth}"
+                                                  maximumLength="#{bindings.ProductoVO1.hints.IdProducto.precision}"
+                                                  shortDesc="#{bindings.ProductoVO1.hints.IdProducto.tooltip}" id="it2">
+                                        <f:validator binding="#{row.bindings.IdProducto.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ProductoVO1.hints.IdProducto.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductoVO1.hints.Nombre.label}" id="c2">
+                                    <af:inputText value="#{row.bindings.Nombre.inputValue}"
+                                                  label="#{bindings.ProductoVO1.hints.Nombre.label}"
+                                                  required="#{bindings.ProductoVO1.hints.Nombre.mandatory}"
+                                                  columns="#{bindings.ProductoVO1.hints.Nombre.displayWidth}"
+                                                  maximumLength="#{bindings.ProductoVO1.hints.Nombre.precision}"
+                                                  shortDesc="#{bindings.ProductoVO1.hints.Nombre.tooltip}" id="it3">
+                                        <f:validator binding="#{row.bindings.Nombre.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductoVO1.hints.Descripcion.label}" id="c3">
+                                    <af:inputText value="#{row.bindings.Descripcion.inputValue}"
+                                                  label="#{bindings.ProductoVO1.hints.Descripcion.label}"
+                                                  required="#{bindings.ProductoVO1.hints.Descripcion.mandatory}"
+                                                  columns="#{bindings.ProductoVO1.hints.Descripcion.displayWidth}"
+                                                  maximumLength="#{bindings.ProductoVO1.hints.Descripcion.precision}"
+                                                  shortDesc="#{bindings.ProductoVO1.hints.Descripcion.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.Descripcion.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductoVO1.hints.Precio.label}" id="c4">
+                                    <af:inputText value="#{row.bindings.Precio.inputValue}"
+                                                  label="#{bindings.ProductoVO1.hints.Precio.label}"
+                                                  required="#{bindings.ProductoVO1.hints.Precio.mandatory}"
+                                                  columns="#{bindings.ProductoVO1.hints.Precio.displayWidth}"
+                                                  maximumLength="#{bindings.ProductoVO1.hints.Precio.precision}"
+                                                  shortDesc="#{bindings.ProductoVO1.hints.Precio.tooltip}" id="it5">
+                                        <f:validator binding="#{row.bindings.Precio.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ProductoVO1.hints.Precio.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelFormLayout>
+                    </f:facet>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_incrementaPrecio-->
+</jsp:root>

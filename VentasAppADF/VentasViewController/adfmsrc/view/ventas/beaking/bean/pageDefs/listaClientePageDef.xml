@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="listaClientePageDef"
+                Package="view.ventas.beaking.bean.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="v_nombre" Type="String"/>
+      <variable Name="v_enviaData" Type="String"/>
+    </variableIterator>
+    <iterator Binds="ClienteVO1" RangeSize="25" DataControl="VentasAMDataControl" id="ClienteVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ClienteVO1Iterator" id="ClienteVO1">
+      <nodeDefinition DefName="model.ventas.entities.vo.ClienteVO" Name="ClienteVO10">
+        <AttrNames>
+          <Item Value="IdCliente"/>
+          <Item Value="Email"/>
+          <Item Value="Nombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="v_nombre1">
+      <AttrNames>
+        <Item Value="v_nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="filtrarCLiente" RequiresUpdateModel="true" Action="invokeMethod" MethodName="filtrarCLiente"
+                  IsViewObjectMethod="false" DataControl="VentasAMDataControl"
+                  InstanceName="bindings.filtrarCLiente.dataControl.dataProvider">
+      <NamedData NDName="p_nombre" NDValue="#{bindings.v_nombre1.inputValue}" NDType="java.lang.String" NDOption="2"/>
+    </methodAction>
+    <attributeValues IterBinding="ClienteVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteVO1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="VentasAMDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="VentasAMDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="ClienteVO1Iterator" id="CreateInsert" InstanceName="VentasAMDataControl.ClienteVO1"
+            DataControl="VentasAMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="BTF-definition">
+    
+    <default-activity>inicializaComponentes</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__7">
+      <managed-bean-name>ControlClientesManagedBean</managed-bean-name>
+      <managed-bean-class>view.ventas.beaking.bean.ControlCliente</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="inicializaComponentes">
+      <?audit suppress oracle.ide.xml.validation-incomplete?>
+      <method>#{pageFlowScope.ControlClientesManagedBean.inicializaComponentes}</method>
+    </method-call>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <view id="controlCliente">
+      <page>/controlCliente.jspx</page>
+    </view>
+    <control-flow-rule id="__13">
+      <from-activity-id>inicializaComponentes</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>goToControl</from-outcome>
+        <to-activity-id>controlCliente</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

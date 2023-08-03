@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <af:pageTemplateDef var="attrs" definition="private">
+        <af:xmlContent>
+            <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+                <description>Template del proyecto Ventas</description>
+                <display-name>templateVentas</display-name>
+                <facet>
+                    <description>Contenido dinamico</description>
+                    <facet-name>contenido</facet-name>
+                </facet>
+                <attribute>
+                    <attribute-name>titulo</attribute-name>
+                    <attribute-class>java.lang.String</attribute-class>
+                    <default-value>Ventas</default-value>
+                </attribute>
+            </component>
+        </af:xmlContent>
+        <af:panelGridLayout id="pt_pgl1">
+            <af:gridRow height="50px" id="pt_gr1">
+                <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc1">
+                    <!-- Header -->
+                    <af:panelGroupLayout id="pt_pgl2" halign="center" valign="middle" layout="vertical"
+                                         inlineStyle='background-image:url("../images/ban_rojo.png");'>
+                        <af:outputText value="SISTEMA DE VENTAS" id="pt_ot1"
+                                       inlineStyle="color:White; font-size:large;"/>
+                        <af:outputText value="#{attrs.titulo}" id="pt_ot2" inlineStyle="color:White; font-size:large;"/>
+                    </af:panelGroupLayout>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow height="100%" id="pt_gr2">
+                <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc2">
+                    <af:decorativeBox theme="dark" id="pt_db1">
+                        <f:facet name="center">
+                            <af:decorativeBox theme="medium" id="pt_db2">
+                                <f:facet name="center">
+                                    <!-- Content -->
+                                    <af:facetRef facetName="contenido"/>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+                    </af:decorativeBox>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+    </af:pageTemplateDef>
+</jsp:root>

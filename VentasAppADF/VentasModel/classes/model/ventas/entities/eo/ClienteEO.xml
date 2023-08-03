@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ClienteEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="T_CLIENTE"
+  AliasName="ClienteEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IdCliente"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    ColumnName="ID_CLIENTE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="T_CLIENTE"
+    PrimaryKey="true"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="T_CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    Precision="30"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="T_CLIENTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MovimientoEO"
+    Association="model.ventas.entities.ass.FkTMovimientoIdCliAssoc"
+    AssociationEnd="model.ventas.entities.ass.FkTMovimientoIdCliAssoc.MovimientoEO"
+    AssociationOtherEnd="model.ventas.entities.ass.FkTMovimientoIdCliAssoc.ClienteEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="PkTClienteIdCli"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_T_CLIENTE_ID_CLI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ventas.entities.eo.ClienteEO.IdCliente"/>
+    </AttrArray>
+  </Key>
+</Entity>

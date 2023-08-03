@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovimientoVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  SelectAllAttributes="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ventas.entities.vo.MovimientoVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="ClienteVO1"
+    ViewObjectName="model.ventas.entities.vo.ClienteVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdCliente"
+    ListVOName="ClienteVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdCliente"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdCliente"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Nombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="MovimientoEO"
+    Entity="model.ventas.entities.eo.MovimientoEO"/>
+  <ViewAttribute
+    Name="IdMovimiento"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="IdMovimiento"
+    EntityUsage="MovimientoEO"
+    AliasName="ID_MOVIMIENTO"/>
+  <ViewAttribute
+    Name="IdCliente"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdCliente"
+    EntityUsage="MovimientoEO"
+    AliasName="ID_CLIENTE"
+    LOVName="LOV_IdCliente">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ventas.entities.vo.MovimientoVO.IdCliente_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FechaMov"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FechaMov"
+    EntityUsage="MovimientoEO"
+    AliasName="FECHA_MOV">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.ventas.entities.vo.MovimientoVO.FechaMov_LABEL"/>
+        <FMT_FORMATTER
+          ResId="model.ventas.entities.vo.MovimientoVO.FechaMov_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.ventas.entities.vo.MovimientoVO.FechaMov_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Estado"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Estado"
+    EntityUsage="MovimientoEO"
+    AliasName="ESTADO"/>
+  <ViewAttribute
+    Name="Total"
+    PrecisionRule="true"
+    EntityAttrName="Total"
+    EntityUsage="MovimientoEO"
+    AliasName="TOTAL"/>
+  <ViewLinkAccessor
+    Name="DetalleVO"
+    ViewLink="model.ventas.entities.vl.MovimientoToDetalleVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ventas.VentasModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

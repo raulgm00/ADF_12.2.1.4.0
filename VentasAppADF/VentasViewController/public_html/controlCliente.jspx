@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="controlCliente.jspx" id="d1" binding="#{backingBeanScope.backing_controlCliente.d1}">
+            <af:messages id="m1" binding="#{backingBeanScope.backing_controlCliente.m1}"/>
+            <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_controlCliente.pgl2}" layout="vertical">
+                <af:outputText value="#{pageFlowScope.ControlClientesManagedBean.titulo}" id="ot1" binding="#{backingBeanScope.backing_controlCliente.ot1}"/>
+                <af:spacer id="s1" binding="#{backingBeanScope.backing_controlCliente.s1}" height="30"/>
+                <af:form id="f1" binding="#{backingBeanScope.backing_controlCliente.f1}">
+                    <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_controlCliente.pfl1}">
+                        <af:inputText value="#{bindings.IdCliente.inputValue}" label="#{bindings.IdCliente.hints.label}"
+                                      required="#{bindings.IdCliente.hints.mandatory}"
+                                      columns="#{bindings.IdCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.IdCliente.hints.precision}"
+                                      shortDesc="#{bindings.IdCliente.hints.tooltip}" id="it1"
+                                      binding="#{backingBeanScope.backing_controlCliente.it1}">
+                            <f:validator binding="#{bindings.IdCliente.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdCliente.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                      required="#{bindings.Email.hints.mandatory}"
+                                      columns="#{bindings.Email.hints.displayWidth}"
+                                      maximumLength="#{bindings.Email.hints.precision}"
+                                      shortDesc="#{bindings.Email.hints.tooltip}" id="it2"
+                                      binding="#{backingBeanScope.backing_controlCliente.it2}">
+                            <f:validator binding="#{bindings.Email.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                                      required="#{bindings.Nombre.hints.mandatory}"
+                                      columns="#{bindings.Nombre.hints.displayWidth}"
+                                      maximumLength="#{bindings.Nombre.hints.precision}"
+                                      shortDesc="#{bindings.Nombre.hints.tooltip}" id="it3"
+                                      binding="#{backingBeanScope.backing_controlCliente.it3}">
+                            <f:validator binding="#{bindings.Nombre.validator}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1"
+                                                 binding="#{backingBeanScope.backing_controlCliente.pgl1}">
+                                <af:button actionListener="#{bindings.First.execute}" text="First"
+                                           disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"
+                                           binding="#{backingBeanScope.backing_controlCliente.b1}"/>
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"
+                                           binding="#{backingBeanScope.backing_controlCliente.b2}"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                           binding="#{backingBeanScope.backing_controlCliente.b3}"/>
+                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"
+                                           binding="#{backingBeanScope.backing_controlCliente.b4}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </af:form>
+            </af:panelGroupLayout>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_controlCliente-->
+</jsp:root>

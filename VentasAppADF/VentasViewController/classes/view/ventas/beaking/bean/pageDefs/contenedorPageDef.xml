@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="contenedorPageDef"
+                Package="view.ventas.beaking.bean.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ClienteVO1" RangeSize="25" DataControl="VentasAMDataControl" id="ClienteVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ClienteVO1Iterator" id="IdCliente">
+      <AttrNames>
+        <Item Value="IdCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteVO1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ClienteVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="ClienteVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="ClienteVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="ClienteVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

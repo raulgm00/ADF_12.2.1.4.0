@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="view.ventas" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/controlCliente.jspx" usageId="view_ventas_controlClientePageDef"/>
+    <page path="/listaCliente.jspx" usageId="view_ventas_listaClientePageDef"/>
+    <page path="/incrementaPrecio.jspx" usageId="view_ventas_incrementaPrecioPageDef"/>
+    <page path="/contenedor.jsf" usageId="view_ventas_contenedorPageDef"/>
+    
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_ventas_controlClientePageDef" path="view.ventas.beaking.bean.pageDefs.controlClientePageDef"/>
+    <page id="view_ventas_listaClientePageDef" path="view.ventas.beaking.bean.pageDefs.listaClientePageDef"/>
+    <page id="view_ventas_incrementaPrecioPageDef" path="view.ventas.beaking.bean.pageDefs.incrementaPrecioPageDef"/>
+    <page id="view_ventas_contenedorPageDef" path="view.ventas.beaking.bean.pageDefs.contenedorPageDef"/>
+    <page id="view_ventas_indexPageDef" path="view.ventas.beaking.bean.pageDefs.indexPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="VentasAMDataControl" Package="model.ventas.entities.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="VentasAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:h="http://java.sun.com/jsf/html">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="master.jspx" id="d1">
+            <af:form id="f1">
+                <af:pageTemplate viewId="/template/templateVentas.jspx" id="pt1">
+                    <f:facet name="contenido">
+                        <af:panelGroupLayout id="pgl1" layout="vertical">
+                            <af:outputText value="Bienvenido" id="ot1"/>
+                            <af:spacer id="s1" height="10" width="10"/>
+                            <af:button text="BTF-definition"
+                                       destination="adf.task-flow?_id=BTF-definition&amp;_document=/BTF-definition.xml"
+                                       id="b1"/>
+                            <af:checkRegionUncommittedDataBehavior/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

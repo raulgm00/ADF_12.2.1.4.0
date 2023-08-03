@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovimientoToDetalleVL"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ventas.entities.vl.MovimientoToDetalleVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="MovimientoVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ventas.entities.vo.MovimientoVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="MovimientoVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ventas.entities.vo.MovimientoVO.IdMovimiento"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DetalleVO"
+    Cardinality="-1"
+    Owner="model.ventas.entities.vo.DetalleVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DetalleVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ventas.entities.vo.DetalleVO.IdMovimiento"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ventas.VentasModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

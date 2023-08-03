@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="listaCliente.jspx" id="d1" binding="#{backingBeanScope.backing_listaCliente.d1}">
+            <af:messages id="m1" binding="#{backingBeanScope.backing_listaCliente.m1}"/>
+            <af:form id="f1" binding="#{backingBeanScope.backing_listaCliente.f1}">
+                <af:pageTemplate viewId="/template/templateVentas.jspx" id="pt1">
+                    <f:facet name="contenido">
+                        <af:panelStretchLayout id="psl1" binding="#{backingBeanScope.backing_listaCliente.psl1}">
+                            <f:facet name="top">
+                                <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_listaCliente.pgl1}"
+                                                     layout="horizontal">
+                                    <af:inputText label="Nombre: " id="it1"
+                                                  binding="#{backingBeanScope.backing_listaCliente.it1}"
+                                                  value="#{bindings.v_nombre1.inputValue}"/>
+                                                  <af:button actionListener="#{bindings.filtrarCLiente.execute}"
+                                                             text="Buscar"
+                                           disabled="#{!bindings.filtrarCLiente.enabled}" id="b1"
+                                           binding="#{backingBeanScope.backing_listaCliente.b1}"/>
+                                </af:panelGroupLayout>
+                                
+                            </f:facet>
+                            <f:facet name="center">
+                                <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_listaCliente.pc1}">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t2" binding="#{backingBeanScope.backing_listaCliente.t2}">
+                                            <af:button text="Agregar" id="b2"
+                                                       binding="#{backingBeanScope.backing_listaCliente.b2}">
+                                                <af:showPopupBehavior popupId=":::p1"/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ClienteVO1.collectionModel}" var="row"
+                                              rows="#{bindings.ClienteVO1.rangeSize}"
+                                              emptyText="#{bindings.ClienteVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.ClienteVO1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ClienteVO1.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.ClienteVO1.rangeSize}"
+                                              id="t1" binding="#{backingBeanScope.backing_listaCliente.t1}"
+                                              columnStretching="last" partialTriggers="::::p1 ::::d2">
+                                        <af:column sortProperty="#{bindings.ClienteVO1.hints.IdCliente.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ClienteVO1.hints.IdCliente.label}" id="c1">
+                                            <af:outputText value="#{row.IdCliente}"
+                                                           shortDesc="#{bindings.ClienteVO1.hints.IdCliente.tooltip}"
+                                                           id="ot1">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ClienteVO1.hints.IdCliente.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ClienteVO1.hints.Email.name}"
+                                                   sortable="true" headerText="#{bindings.ClienteVO1.hints.Email.label}"
+                                                   id="c2">
+                                            <af:outputText value="#{row.Email}"
+                                                           shortDesc="#{bindings.ClienteVO1.hints.Email.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ClienteVO1.hints.Nombre.name}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ClienteVO1.hints.Nombre.label}" id="c3">
+                                            <af:outputText value="#{row.Nombre}"
+                                                           shortDesc="#{bindings.ClienteVO1.hints.Nombre.tooltip}"
+                                                           id="ot3"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </f:facet>
+                    <f:attribute name="titulo" value="Lista de Clientes"/>
+                </af:pageTemplate>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                          binding="#{backingBeanScope.backing_listaCliente.p1}"
+                          popupFetchListener="#{backingBeanScope.backing_listaCliente.cargarPopup}"
+                          contentDelivery="lazyUncached">
+                    <af:dialog id="d2" binding="#{backingBeanScope.backing_listaCliente.d2}"
+                               title="Gesti&#243;n de Clientes"
+                               dialogListener="#{backingBeanScope.backing_listaCliente.ejecutar}">
+                        <f:facet name="buttonBar"/>
+                        <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_listaCliente.pfl1}">
+                            <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                          required="#{bindings.Email.hints.mandatory}"
+                                          columns="#{bindings.Email.hints.displayWidth}"
+                                          maximumLength="#{bindings.Email.hints.precision}"
+                                          shortDesc="#{bindings.Email.hints.tooltip}" id="it2"
+                                          binding="#{backingBeanScope.backing_listaCliente.it2}">
+                                <f:validator binding="#{bindings.Email.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                                          required="#{bindings.Nombre.hints.mandatory}"
+                                          columns="#{bindings.Nombre.hints.displayWidth}"
+                                          maximumLength="#{bindings.Nombre.hints.precision}"
+                                          shortDesc="#{bindings.Nombre.hints.tooltip}" id="it3"
+                                          binding="#{backingBeanScope.backing_listaCliente.it3}">
+                                <f:validator binding="#{bindings.Nombre.validator}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </af:dialog>
+                </af:popup>
+            </af:form>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_listaCliente-->
+</jsp:root>
